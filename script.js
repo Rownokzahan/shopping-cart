@@ -43,3 +43,20 @@ document.getElementById('cover-minus').addEventListener('click', function(){
     decreaseItem('cover-num','current-cover-price',59);
 });
 
+// Removing Cart Item
+
+// Removing Phone Item
+document.getElementById('remove-phone').addEventListener('click',function(){
+    let totalPhonePrice = document.getElementById('current-phone-price').innerText;
+    let subTotal = document.getElementById('subTotal');
+    subTotal.innerText= subTotal.innerText-totalPhonePrice;
+    document.getElementById('item-phone').style.display = "none";
+});
+
+// Removing Item(Phone Case )
+document.getElementById('remove-case').addEventListener('click',function(){
+    let totalCasePrice = document.getElementById('current-cover-price').innerText;
+    document.getElementById('subTotal').innerText= (document.getElementById('subTotal').innerText)-totalCasePrice;
+    document.getElementById('total').innerText = (document.getElementById('total').innerText)-(totalCasePrice);
+    document.getElementById('item-case').style.display = "none";
+});
