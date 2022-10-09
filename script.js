@@ -11,10 +11,23 @@ function decreaseItem(itemId,priceId,singlePrice){
 }
 
 function updatePrice(itemNo,priceId,singlePrice){
-    let currentPhonePrice = document.getElementById(priceId);
+    let currentPrice = document.getElementById(priceId);
     let price = parseInt(singlePrice) *itemNo;
-    currentPhonePrice.innerText =price;
+    currentPrice.innerText =price;
+
+
+    // Calculating Sub Total
+    let phonePrice = document.getElementById('current-phone-price').innerText;
+    let coverPrice = document.getElementById('current-cover-price').innerText;
+    let subTotal = document.getElementById('subTotal');
+    subTotal.innerText= parseInt(phonePrice)+parseInt(coverPrice);
+
+    // Calculating Total
+    let tax =9.45;
+    let total = parseInt(subTotal.innerText) + parseFloat(tax);
+    document.getElementById('total').innerText = total;
 }
+
 document.getElementById('plus-btn').addEventListener('click',function(){
     increaseItem('noPhone','current-phone-price',1219);
 });
@@ -30,5 +43,3 @@ document.getElementById('cover-minus').addEventListener('click', function(){
     decreaseItem('cover-num','current-cover-price',59);
 });
 
-let x = document.getElementById('current-phone-price').innerText;
-console.log(x);
