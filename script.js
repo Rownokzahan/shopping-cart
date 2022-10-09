@@ -6,7 +6,9 @@ function increaseItem(itemId,priceId,singlePrice){
 
 function decreaseItem(itemId,priceId,singlePrice){
     let currentNum = document.getElementById(itemId);
-    currentNum.value--;
+    if(currentNum.value>0){
+        currentNum.value--;
+    }
     updatePrice(currentNum.value,priceId,singlePrice);
 }
 
